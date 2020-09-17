@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::post('/login', 'ChatsController@login')->middleware('cors');
+Route::get('/messages', 'ChatsController@fetchMessages')->middleware('cors');
+Route::post('/messages', 'ChatsController@sendMessage')->middleware('cors');
